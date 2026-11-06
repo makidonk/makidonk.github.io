@@ -23,7 +23,7 @@ export function SelectedWork() {
       />
       <WavePoint
         order={6}
-        className="absolute left-[80%] top-[calc(100%+0.5rem)] md:left-[62%] md:top-[calc(100%+1.5rem)]"
+        className="absolute top-[calc(100%+0.5rem)] left-[62%] md:top-[calc(100%+1.5rem)]"
       />
     </section>
   );

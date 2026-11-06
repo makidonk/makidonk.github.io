@@ -1,6 +1,6 @@
-import { about } from '../content'
-import { PillButton } from './PillButton'
-import { WavePoint } from './WavePoint'
+import { about } from "../content";
+import { PillButton } from "./PillButton";
+import { WavePoint } from "./WavePoint";
 
 export function About() {
   return (
@@ -15,11 +15,15 @@ export function About() {
       <div className="shell relative z-10 grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 lg:gap-24">
         <div
           className="group aspect-[10/11] w-full max-w-[520px] overflow-hidden bg-sky"
-          style={{ clipPath: 'url(#about-blob)' }}
+          style={{ clipPath: "url(#about-blob)" }}
         >
           <div className="size-full transition-transform duration-[900ms] ease-out-soft group-hover:scale-[1.04]">
             {about.photo ? (
-              <img src={about.photo} alt={about.photoAlt} className="size-full object-cover" />
+              <img
+                src={about.photo}
+                alt={about.photoAlt}
+                className="size-full object-cover"
+              />
             ) : (
               <PhotoPlaceholder />
             )}
@@ -30,7 +34,9 @@ export function About() {
           <h2 className="font-display text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em]">
             about me
           </h2>
-          <p className="mt-6 max-w-[28ch] text-xl leading-snug md:mt-8 md:text-2xl">{about.intro}</p>
+          <p className="mt-6 max-w-[28ch] text-xl leading-snug md:mt-8 md:text-2xl">
+            {about.intro}
+          </p>
           <PillButton href={about.moreHref} className="mt-10">
             read more
           </PillButton>
@@ -38,11 +44,16 @@ export function About() {
       </div>
 
       {/* Mobile: the line hides behind the photo, then crosses in the gap before Contact */}
-      <WavePoint order={7} className="absolute -left-[6%] top-[6%] md:top-[12%]" />
-      <WavePoint order={8} className="absolute -left-[8%] top-[calc(100%-1rem)] md:left-[36%] md:top-[90%]" />
-      <WavePoint order={9} className="absolute left-[70%] top-[calc(100%+3rem)] md:left-[74%] md:top-[98%]" />
+      <WavePoint
+        order={7}
+        className="absolute left-[-6%] top-[6%] md:top-[12%]"
+      />
+      <WavePoint
+        order={8}
+        className="absolute top-[calc(100%-1rem)] left-[36%] md:top-[90%]"
+      />
     </section>
-  )
+  );
 }
 
 /** PLACEHOLDER portrait — replace by setting `about.photo` in content.ts. */
@@ -57,11 +68,14 @@ function PhotoPlaceholder() {
       >
         <rect width="100" height="110" className="fill-sky" />
         <circle cx="50" cy="44" r="17" className="fill-cream/90" />
-        <path d="M14 110c2-24 17-36 36-36s34 12 36 36Z" className="fill-cream/90" />
+        <path
+          d="M14 110c2-24 17-36 36-36s34 12 36 36Z"
+          className="fill-cream/90"
+        />
       </svg>
       <span className="absolute bottom-[12%] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink/75 px-3 py-1 text-xs font-medium tracking-wide text-cream">
         Placeholder — your photo
       </span>
     </div>
-  )
+  );
 }

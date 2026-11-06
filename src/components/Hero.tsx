@@ -68,7 +68,7 @@ export function Hero() {
                 />
                 <WavePoint
                   order={2}
-                  className="absolute left-0 top-[calc(100%+0.5em)]"
+                  className="absolute left-0 top-[calc(100%+2em)]"
                 />
               </span>
             </span>
@@ -76,14 +76,7 @@ export function Hero() {
         </div>
       </div>
 
-      <WavePoint
-        order={3}
-        className="absolute left-[90%] top-[80%] md:left-[66%] md:top-[82%]"
-      />
-      <WavePoint
-        order={4}
-        className="absolute hidden md:block md:left-[92%] md:top-[97%]"
-      />
+      <WavePoint order={4} className="absolute left-[92%] top-[97%]" />
     </header>
   );
 }
