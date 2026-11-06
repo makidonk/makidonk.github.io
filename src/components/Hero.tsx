@@ -1,7 +1,6 @@
 import { site } from "../content";
 import { Flower } from "./Flower";
 import { Logo } from "./Logo";
-import { PillButton } from "./PillButton";
 import { WavePoint } from "./WavePoint";
 
 const NAV = [
@@ -32,7 +31,7 @@ export function Hero() {
         </ul>
       </nav>
 
-      <div className="shell relative pb-24 pt-14 md:pb-36 md:pt-12">
+      <div className="shell relative pb-32 pt-20 md:pb-36 md:pt-12">
         <Flower className="absolute -right-[22vw] top-4 z-0 w-[68vw] sm:-right-[12vw] sm:w-[52vw] md:right-[-2vw] md:top-4 md:w-[44vw] md:max-w-[640px]" />
 
         {/*
@@ -42,16 +41,16 @@ export function Hero() {
         */}
         <div className="@container pointer-events-none relative z-10">
           <h1 className="font-display">
-            <span className="block pl-[5cqi] text-[length:max(1.15rem,3cqi)] font-bold leading-none tracking-tight">
+            <span className="block pl-[5cqi] text-[length:max(2rem,3cqi)] font-bold leading-none tracking-tight max-md:mb-4 max-md:whitespace-nowrap max-md:text-[length:max(2rem,3cqi)]">
               hi, my name is
             </span>
             <span className="block whitespace-nowrap text-[length:23cqi] font-extrabold uppercase leading-[0.8] tracking-[-0.045em]">
               {site.name}
             </span>
-            <span className="-mt-[0.8cqi] block pl-[3cqi] font-sans text-[length:max(1.15rem,3cqi)] font-bold leading-none tracking-tight">
+            <span className="-mt-[0.8cqi] block pl-[3cqi] font-sans text-[length:max(2rem,3cqi)] font-bold leading-none tracking-tight max-md:mt-4 max-md:whitespace-nowrap max-md:text-[length:max(2rem,3cqi)]">
               and I'm a
             </span>
-            <span className="mt-[max(0.2rem,0.6cqi)] block whitespace-nowrap pl-[10cqi] text-[length:10cqi] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] md:text-[length:7.5cqi]">
+            <span className="mt-[max(0.2rem,0.6cqi)] max-md:mt-6 block whitespace-nowrap pl-[10cqi] text-[length:10cqi] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] md:text-[length:7.5cqi]">
               <span className="relative inline-block">
                 web developer
                 {/*
