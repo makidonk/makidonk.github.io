@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens
+   ------------------------------------------------------------------ */
+@theme {
+  --color-tangerine: #e2491a;
+  --color-tangerine-deep: #c93d12;
+  --color-cream: #fff3e2;
+  --color-blush: #f6a5c0;
+  --color-blush-deep: #ee7f9f;
+  --color-sky: #86aede;
+  --color-sky-deep: #5d8bc9;
+  --color-ink: #2b1209;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-tangerine);
+    color: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  ::selection {
+    background: var(--color-blush);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-cream);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Continuous wavy line
+   ------------------------------------------------------------------ */
+.wave-stroke {
+  fill: none;
+  stroke: var(--color-blush);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 10;
+}
+
+@media (min-width: 768px) {
+  .wave-stroke {
+    stroke-width: 15;
+  }
+}
+
+/* Scroll-driven reveal is handled in WavyLine.tsx (stroke-dashoffset). */
+
+/* ------------------------------------------------------------------
+   Squiggle text links — straight underline turns wavy on hover
+   ------------------------------------------------------------------ */
+.squiggle-link {
+  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4' fill='none' stroke='%23f6a5c0' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  padding-bottom: 0.4em;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+}
+
+.squiggle-link:hover {
+  background-image: var(--squiggle);
+  background-size: 20px 8px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .squiggle-link:hover {
+    animation: squiggle-run 0.9s linear infinite;
+  }
+}
+
+@keyframes squiggle-run {
+  to {
+    background-position: 20px 100%;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Subtle paper grain (print feel, not a gradient)
+   ------------------------------------------------------------------ */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+}
+
+/* ------------------------------------------------------------------
+   Layout shell — centred content column with responsive gutters
+   ------------------------------------------------------------------ */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 88rem;
+  padding-inline: 1.5rem;
+}
