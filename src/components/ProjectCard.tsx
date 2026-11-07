@@ -21,7 +21,7 @@ export function ProjectCard({ project, index }: Props) {
   return (
     <a href={project.href} className="group block">
       <div
-        className={`aspect-[16/10] overflow-hidden rounded-[5px] transition-transform duration-700 ease-out-soft group-hover:-translate-y-2 ${tilt} ${COLOR_CLASS[project.color]}`}
+        className={`aspect-[1/1] overflow-hidden  transition-transform duration-700 ease-out-soft group-hover:-translate-y-2 ${tilt} ${COLOR_CLASS[project.color]}`}
         // PLACEHOLDER: solid colour until `image` is set in content.ts
         data-placeholder={project.image ? undefined : true}
       >
@@ -35,12 +35,12 @@ export function ProjectCard({ project, index }: Props) {
         )}
       </div>
 
-      <div className="mt-5 flex items-start justify-between gap-6">
+      <div className="mt-1 flex items-start justify-between gap-6">
         <div>
           <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
             {project.title}
           </h3>
-          <p className="mt-1 text-base text-text/80">{project.category}</p>
+          {/* <p className="mt-1 text-base text-text/80">{project.category}</p> */}
         </div>
         {/* <ArrowIcon className="mt-1 shrink-0 rotate-45 text-2xl opacity-0 -translate-x-3 transition duration-500 ease-out-soft group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 md:text-3xl [@media(hover:none)]:translate-x-0 [@media(hover:none)]:opacity-100" /> */}
       </div>

@@ -76,7 +76,7 @@ export function Hero() {
       <div className="shell">
         {" "}
         <p className="py-10 text-center font-sans italic text-[1.5rem] leading-none tracking-tight mt-4 ">
-          ! This portfolio is a work in progress – just like my journey as a
+          ! This portfolio is a work in progress, just like my journey as a
           developer.
         </p>
       </div>

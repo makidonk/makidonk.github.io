@@ -4,12 +4,18 @@
    Design tokens
    ------------------------------------------------------------------ */
 @theme {
-  /* --color-background: #e2491a; orange*/
+  /*  #e2491a; orange*/
+  /*  #fff3e2; creme */
+  /* #f6a5c0; rosa */
+  /* #38faee7 blå */
+  /* #4f290a brun */
+  /* #500809 brun 2 */
+  /* a1bdd8 blue 2 */
+
   --color-background: #fff3e2;
   --color-background-deep: #c93d12;
-  --color-text: #c81717;
-  /* --color-accent: #f6a5c0; rosa*/
-  --color-accent: #8faee7;
+  --color-text: #500809;
+  --color-accent: #a1bdd8;
   --color-accent-deep: #8faee7;
   --color-accent-light: #9cb3dc;
   --color-sky: #86aede;

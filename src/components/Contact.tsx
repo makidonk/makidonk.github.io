@@ -50,8 +50,11 @@ export function Contact() {
           >
             <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
           </a>
-          <a href="#top" className="squiggle-link self-start">
+          <a href="#top" className="lg:hidden squiggle-link self-start">
             back to top ↑
+          </a>
+          <a href="#top" className="hidden lg:block squiggle-link self-start">
+            back to the spinning flower ↑
           </a>
         </footer>
       </div>

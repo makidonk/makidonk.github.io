@@ -11,7 +11,7 @@ export function SelectedWork() {
           here are my proudest projects :
         </h2>
 
-        <div className="mt-10 grid gap-x-8 gap-y-14 md:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-20">
+        <div className="mt-10 grid gap-x-2 gap-y-2 md:mt-14 md:grid-cols-2 lg:grid-cols-4 ">
           {projects.map((project, i) => (
             <ProjectCard key={i} project={project} index={i} />
           ))}
