@@ -27,7 +27,7 @@ export function Hero() {
         </ul>
       </nav>
 
-      <div className="shell relative pb-32 pt-20 md:pb-36 md:pt-12">
+      <div className="shell relative pb-12 pt-20 md:pb-36 md:pt-12">
         <Flower className="absolute -right-[22vw] top-4 z-0 w-[68vw] sm:-right-[12vw] sm:w-[52vw] md:right-[-2vw] md:top-4 md:w-[44vw] md:max-w-[640px]" />
 
         {/*
@@ -73,6 +73,13 @@ export function Hero() {
       </div>
 
       <WavePoint order={4} className="absolute left-[92%] top-[97%]" />
+      <div className="shell">
+        {" "}
+        <p className="py-10 text-center font-sans italic text-[1.5rem] leading-none tracking-tight mt-4 ">
+          ! This portfolio is a work in progress – just like my journey as a
+          developer.
+        </p>
+      </div>
     </header>
   );
 }
