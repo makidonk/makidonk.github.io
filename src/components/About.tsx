@@ -1,5 +1,4 @@
 import { about } from "../content";
-import { PillButton } from "./PillButton";
 import { WavePoint } from "./WavePoint";
 
 export function About() {

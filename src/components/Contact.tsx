@@ -1,9 +1,11 @@
+import { Link } from "react-router";
 import { site } from "../content";
 import { Logo } from "./Logo";
 import { WavePoint } from "./WavePoint";
 
-export function Contact() {
-  const year = new Date().getFullYear();
+/** `onHome={false}` on other pages: the logo links home and there is no flower to go back to. */
+export function Contact({ onHome = true }: { onHome?: boolean }) {
+  // const year = new Date().getFullYear(); // re-enable with the © line below
 
   return (
     <section id="contact" className="relative scroll-mt-6 pt-20 md:pt-28">
@@ -43,19 +45,30 @@ export function Contact() {
           {/* <p>
             © {year} {site.name}
           </p> */}
+          {onHome ? (
+            <a
+              href="#top"
+              aria-label={`${site.name} — home`}
+              className="text-text"
+            >
+              <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
+            </a>
+          ) : (
+            <Link to="/" aria-label={`${site.name} — home`} className="text-text">
+              <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
+            </Link>
+          )}
           <a
             href="#top"
-            aria-label={`${site.name} — home`}
-            className="text-text"
+            className={`squiggle-link self-start ${onHome ? "lg:hidden" : ""}`}
           >
-            <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
-          </a>
-          <a href="#top" className="lg:hidden squiggle-link self-start">
             back to top ↑
           </a>
-          <a href="#top" className="hidden lg:block squiggle-link self-start">
-            back to the spinning flower ↑
-          </a>
+          {onHome && (
+            <a href="#top" className="hidden lg:block squiggle-link self-start">
+              back to the spinning flower ↑
+            </a>
+          )}
         </footer>
       </div>
 

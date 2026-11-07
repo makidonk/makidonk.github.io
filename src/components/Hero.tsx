@@ -1,31 +1,12 @@
 import { site } from "../content";
 import { Flower } from "./Flower";
-import { Logo } from "./Logo";
+import { SiteNav } from "./SiteNav";
 import { WavePoint } from "./WavePoint";
-
-const NAV = [
-  { label: "projects", href: "#work" },
-  { label: "about", href: "#about" },
-  { label: "contact", href: "#contact" },
-];
 
 export function Hero() {
   return (
     <header id="top" className="relative">
-      <nav className="shell relative z-20 flex items-center justify-between pt-4 md:pt-4">
-        <a href="#top" aria-label={`${site.name} — home`} className="text-text">
-          <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
-        </a>
-        <ul className="flex gap-5 text-base font-medium sm:gap-10 md:gap-14 md:text-xl">
-          {NAV.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className="squiggle-link">
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SiteNav onHome />
 
       <div className="shell relative pb-12 pt-20 md:pb-36 md:pt-12">
         <Flower className="absolute -right-[22vw] top-4 z-0 w-[68vw] sm:-right-[12vw] sm:w-[52vw] md:right-[-2vw] md:top-4 md:w-[44vw] md:max-w-[640px]" />

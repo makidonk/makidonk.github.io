@@ -20,10 +20,12 @@ All copy, links and projects live in **`src/content.ts`**. Every value marked
 
 - `site.email`, `site.socials` — your email, GitHub and LinkedIn URLs
 - `about.intro`, `about.moreHref`, `about.photo` — intro text, "read more" link, portrait
-- `projects` — titles, categories, links and images
+- `projects` — one entry per project. Each gets a page at `/projects/<slug>`;
+  `featured: true` also shows it on the homepage, `gridSize` sets its size on
+  `/projects`, and optional fields (role, year, links…) only appear when set
 
 To use real images, put them in `public/` (e.g. `public/images/me.jpg`) and set
-the path, e.g. `photo: '/images/me.jpg'`. Projects without an `image` show a
+the path, e.g. `photo: '/images/me.jpg'`. Projects without a `coverImage` show a
 solid card in their `color` (`'accent'` or `'sky'`).
 
 ## Structure

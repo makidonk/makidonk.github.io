@@ -1,5 +1,5 @@
-import { projects } from "../content";
-import { PillButton } from "./PillButton";
+import { Link } from "react-router";
+import { featuredProjects } from "../content";
 import { ProjectCard } from "./ProjectCard";
 import { WavePoint } from "./WavePoint";
 
@@ -12,14 +12,14 @@ export function SelectedWork() {
         </h2>
 
         <div className="mt-10 grid gap-x-2 gap-y-2 md:mt-14 md:grid-cols-2 lg:grid-cols-4 ">
-          {projects.map((project, i) => (
-            <ProjectCard key={i} project={project} index={i} />
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
         <div className="pt-10">
-          <a href="#" className="squiggle-link text-xl font-medium">
+          <Link to="/projects" className="squiggle-link text-xl font-medium">
             view all my projects
-          </a>
+          </Link>
         </div>
       </div>
 
