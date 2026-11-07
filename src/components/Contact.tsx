@@ -1,5 +1,5 @@
 import { site } from "../content";
-import { PillButton } from "./PillButton";
+import { Logo } from "./Logo";
 import { WavePoint } from "./WavePoint";
 
 export function Contact() {
@@ -16,7 +16,6 @@ export function Contact() {
           </h2>
 
           <div className="flex flex-col items-start gap-7 md:items-end md:pb-4">
-            <PillButton href={`mailto:${site.email}`}>get in touch</PillButton>
             <a
               href={`mailto:${site.email}`}
               className="squiggle-link text-lg font-medium"
@@ -40,10 +39,17 @@ export function Contact() {
           </div>
         </div>
 
-        <footer className="mt-24 flex flex-col gap-3 border-t border-cream/25 py-8 text-sm text-cream/80 sm:flex-row sm:justify-between md:mt-32">
-          <p>
+        <footer className="mt-24 flex flex-col gap-3 border-t border-text/25 py-8 text-sm text-text/80 sm:flex-row sm:justify-between md:mt-32">
+          {/* <p>
             © {year} {site.name}
-          </p>
+          </p> */}
+          <a
+            href="#top"
+            aria-label={`${site.name} — home`}
+            className="text-text"
+          >
+            <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
+          </a>
           <a href="#top" className="squiggle-link self-start">
             back to top ↑
           </a>
@@ -55,7 +61,7 @@ export function Contact() {
         className="absolute left-[106%] top-[18%] md:left-[80%] md:top-[18%]"
       />
       <WavePoint order={10} className="absolute   left-[10%] top-[48%]" />
-      <WavePoint order={11} className="absolute  left-[55%] top-[98%]" />
+      <WavePoint order={11} className="absolute  left-[55%] top-[101%]" />
     </section>
   );
 }

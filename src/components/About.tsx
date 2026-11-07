@@ -37,16 +37,21 @@ export function About() {
           <p className="mt-6 max-w-[28ch] text-xl leading-snug md:mt-8 md:text-2xl">
             {about.intro}
           </p>
-          <PillButton href={about.moreHref} className="mt-10">
-            read more
-          </PillButton>
+
+          <div className="mt-10">
+            <a
+              href={about.moreHref}
+              className="squiggle-link text-xl font-medium"
+            >
+              let me talk even more about myself
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Mobile: the line hides behind the photo, then crosses in the gap before Contact */}
       <WavePoint
         order={7}
-        className="absolute left-[-6%] top-[6%] md:top-[12%]"
+        className="absolute left-[2%] top-[16%] md:top-[6%]"
       />
       <WavePoint
         order={8}
@@ -67,13 +72,13 @@ function PhotoPlaceholder() {
         className="size-full"
       >
         <rect width="100" height="110" className="fill-sky" />
-        <circle cx="50" cy="44" r="17" className="fill-cream/90" />
+        <circle cx="50" cy="44" r="17" className="fill-text/90" />
         <path
           d="M14 110c2-24 17-36 36-36s34 12 36 36Z"
-          className="fill-cream/90"
+          className="fill-text/90"
         />
       </svg>
-      <span className="absolute bottom-[12%] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink/75 px-3 py-1 text-xs font-medium tracking-wide text-cream">
+      <span className="absolute bottom-[12%] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink/75 px-3 py-1 text-xs font-medium tracking-wide text-text">
         Placeholder — your photo
       </span>
     </div>

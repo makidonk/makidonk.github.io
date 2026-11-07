@@ -29,7 +29,7 @@ export const about = {
 };
 
 /** Solid card colour, shown until a real image is set. Uses the site palette. */
-export type CardColor = "blush" | "sky";
+export type CardColor = "accent" | "sky";
 
 export type Project = {
   title: string;
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     category: " visual identity",
     href: "#",
     image: null,
-    color: "blush",
+    color: "accent",
   },
   {
     title: "Project 2",
@@ -68,6 +68,6 @@ export const projects: Project[] = [
     category: "front-end development",
     href: "#",
     image: null,
-    color: "blush",
+    color: "accent",
   },
 ];

@@ -13,11 +13,7 @@ export function Hero() {
   return (
     <header id="top" className="relative">
       <nav className="shell relative z-20 flex items-center justify-between pt-4 md:pt-4">
-        <a
-          href="#top"
-          aria-label={`${site.name} — home`}
-          className="text-cream"
-        >
+        <a href="#top" aria-label={`${site.name} — home`} className="text-text">
           <Logo className="h-8 w-auto transition-transform duration-500 ease-spring md:h-10" />
         </a>
         <ul className="flex gap-5 text-base font-medium sm:gap-10 md:gap-14 md:text-xl">
@@ -68,7 +64,7 @@ export function Hero() {
                 />
                 <WavePoint
                   order={2}
-                  className="absolute left-0 top-[calc(100%+2em)]"
+                  className="absolute left-0 top-[calc(100%+1.2em)]"
                 />
               </span>
             </span>

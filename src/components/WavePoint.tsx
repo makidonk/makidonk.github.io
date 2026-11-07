@@ -2,7 +2,7 @@
  * TEMPORARY DEBUG: set to true to show a numbered marker at every WavePoint.
  * Delete this flag and the marker below when you're done tuning positions.
  */
-const DEBUG_WAVE_POINTS = true;
+const DEBUG_WAVE_POINTS = false;
 
 type Props = {
   /** Order along the line. Points are connected in ascending order. */

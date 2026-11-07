@@ -4,11 +4,14 @@
    Design tokens
    ------------------------------------------------------------------ */
 @theme {
-  --color-tangerine: #e2491a;
-  --color-tangerine-deep: #c93d12;
-  --color-cream: #fff3e2;
-  --color-blush: #f6a5c0;
-  --color-blush-deep: #ee7f9f;
+  /* --color-background: #e2491a; orange*/
+  --color-background: #fff3e2;
+  --color-background-deep: #c93d12;
+  --color-text: #c81717;
+  /* --color-accent: #f6a5c0; rosa*/
+  --color-accent: #8faee7;
+  --color-accent-deep: #8faee7;
+  --color-accent-light: #9cb3dc;
   --color-sky: #86aede;
   --color-sky-deep: #5d8bc9;
   --color-ink: #2b1209;
@@ -22,8 +25,8 @@
 
 @layer base {
   html {
-    background: var(--color-tangerine);
-    color: var(--color-cream);
+    background: var(--color-background);
+    color: var(--color-text);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -34,12 +37,12 @@
   }
 
   ::selection {
-    background: var(--color-blush);
+    background: var(--color-accent);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-cream);
+    outline: 3px solid var(--color-text);
     outline-offset: 4px;
     border-radius: 6px;
   }
@@ -50,7 +53,8 @@
    ------------------------------------------------------------------ */
 .wave-stroke {
   fill: none;
-  stroke: var(--color-blush);
+  stroke: var(--color-accent-light);
+  stroke: #a6beea;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 10;
@@ -68,7 +72,7 @@
    Squiggle text links — straight underline turns wavy on hover
    ------------------------------------------------------------------ */
 .squiggle-link {
-  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4' fill='none' stroke='%23f6a5c0' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4' fill='none' stroke='%238faee7' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
   padding-bottom: 0.4em;
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: repeat-x;

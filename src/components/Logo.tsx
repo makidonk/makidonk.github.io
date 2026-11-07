@@ -11,7 +11,7 @@ export function Logo({ className = "" }: { className?: string }) {
       className={className}
       fill="currentColor"
     >
-      <path d={LOGO_D} className="fill-blush" />
+      <path d={LOGO_D} className="fill-accent" />
     </svg>
   );
 }

@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div
       ref={setPage}
-      className="relative overflow-x-clip bg-tangerine font-sans text-cream"
+      className="relative overflow-x-clip bg-background font-sans text-text"
     >
       <WavyLine root={page} />
       <Hero />

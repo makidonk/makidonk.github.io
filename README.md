@@ -24,7 +24,7 @@ All copy, links and projects live in **`src/content.ts`**. Every value marked
 
 To use real images, put them in `public/` (e.g. `public/images/me.jpg`) and set
 the path, e.g. `photo: '/images/me.jpg'`. Projects without an `image` show a
-solid card in their `color` (`'blush'` or `'sky'`).
+solid card in their `color` (`'accent'` or `'sky'`).
 
 ## Structure
 

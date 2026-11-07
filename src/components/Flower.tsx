@@ -11,7 +11,7 @@ export function Flower({ className = "" }: { className?: string }) {
         aria-hidden="true"
         className="h-auto w-full will-change-transform transition-transform duration-[900ms] ease-spring group-hover:rotate-[150deg] group-hover:scale-[0.96]"
       >
-        <path d={FLOWER_D} className="fill-blush" />
+        <path d={FLOWER_D} className="fill-accent" />
       </svg>
     </div>
   );
