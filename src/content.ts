@@ -19,12 +19,11 @@ export const site = {
 };
 
 export const about = {
-  intro:
-    "I’m a multidisciplinary designer and developer who loves to bring ideas to life on the web.",
+  intro: "I’m a design-loving developer who .",
   //  link to a longer about page, CV or similar
   moreHref: "#",
   // set to an image path (e.g. '/images/me.jpg' in /public) to replace the placeholder
-  photo: null as string | null,
+  photo: "/images/about-me-transparent.png",
   photoAlt: "no photo",
 };
 

@@ -11,17 +11,17 @@ export function About() {
         </clipPath>
       </svg>
 
-      <div className="shell relative z-10 grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 lg:gap-24">
+      <div className="shell relative z-10 grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-5 ">
         <div
-          className="group aspect-[10/11] w-full max-w-[520px] overflow-hidden bg-sky"
-          style={{ clipPath: "url(#about-blob)" }}
+          className="group aspect-[10/11] w-full max-w-[500px] overflow-hidden "
+          // style={{ clipPath: "url(#about-blob)" }}
         >
           <div className="size-full transition-transform duration-[900ms] ease-out-soft group-hover:scale-[1.04]">
             {about.photo ? (
               <img
                 src={about.photo}
                 alt={about.photoAlt}
-                className="size-full object-cover"
+                className="size-full object-contain object-bottom p-4"
               />
             ) : (
               <PhotoPlaceholder />
@@ -33,8 +33,15 @@ export function About() {
           <h2 className="font-display text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em]">
             about me
           </h2>
-          <p className="mt-6 max-w-[28ch] text-xl leading-snug md:mt-8 md:text-2xl">
-            {about.intro}
+          <p className="mt-6 max-w-[700px] text-xl leading-snug md:mt-8 md:text-2xl">
+            When I'm not busy standing on giant vegetables, you'll probably find
+            me climbing or hiking somewhere.
+            <br></br>
+            <br></br>
+            When I'm at my computer, I'm usually gaming, writing code, or
+            spending way too long making something look just right. I'm a
+            developer first, but my background in design definitely comes in
+            handy.
           </p>
 
           <div className="mt-10">
@@ -69,17 +76,7 @@ function PhotoPlaceholder() {
         preserveAspectRatio="xMidYMid slice"
         aria-hidden="true"
         className="size-full"
-      >
-        <rect width="100" height="110" className="fill-sky" />
-        <circle cx="50" cy="44" r="17" className="fill-text/90" />
-        <path
-          d="M14 110c2-24 17-36 36-36s34 12 36 36Z"
-          className="fill-text/90"
-        />
-      </svg>
-      <span className="absolute bottom-[12%] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink/75 px-3 py-1 text-xs font-medium tracking-wide text-text">
-        Placeholder — your photo
-      </span>
+      ></svg>
     </div>
   );
 }
