@@ -76,8 +76,7 @@ export type Project = {
 /** Copy for the /projects overview page. */
 export const projectsPage = {
   heading: "all projects",
-  intro:
-    "A collection of my work across design and development — from visual identities to websites.",
+  intro: "A collection of my work across development and design. ",
 };
 
 /** PLACEHOLDER gallery: solid colour blocks until real images are added. */
@@ -85,6 +84,7 @@ const placeholderGallery = (count: number): ProjectImage[] =>
   Array.from({ length: count }, (_, i) => ({
     src: null,
     alt: `Placeholder image ${i + 1}`,
+    caption: "hej",
   }));
 
 // PLACEHOLDER: replace these entries with your real projects.
@@ -93,12 +93,11 @@ export const projects: Project[] = [
   {
     slug: "project-1",
     title: "Project 1",
-    category: "visual identity",
-    intro: "PLACEHOLDER — a one or two sentence introduction to the project.",
-    description:
-      "PLACEHOLDER — a short description of the brief, the process and the outcome.",
-    role: "PLACEHOLDER — your role",
-    technologies: ["PLACEHOLDER tool", "PLACEHOLDER tool"],
+    category: "web design & development",
+    intro: "test.",
+    description: "test descriptionnnnnnn",
+    role: "developing",
+    technologies: ["React", "AI Agents"],
     coverImage: null,
     galleryImages: placeholderGallery(7),
     featured: true,
@@ -109,7 +108,7 @@ export const projects: Project[] = [
     slug: "project-2",
     title: "Project 2",
     category: "web design & development",
-    intro: "PLACEHOLDER — a one or two sentence introduction to the project.",
+    intro: "this and that tttttt",
     coverImage: null,
     galleryImages: placeholderGallery(4),
     featured: true,
@@ -129,7 +128,7 @@ export const projects: Project[] = [
   {
     slug: "project-4",
     title: "Project 4",
-    category: "front-end development",
+    category: "web development",
     coverImage: null,
     galleryImages: placeholderGallery(1),
     featured: true,
@@ -150,7 +149,7 @@ export const projects: Project[] = [
   {
     slug: "project-6",
     title: "Project 6",
-    category: "software development",
+    category: "web development",
     coverImage: null,
     featured: false,
     gridSize: "medium",

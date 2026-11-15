@@ -38,9 +38,8 @@ export function ImageFrame({
             className="absolute inset-0 size-full object-cover"
           />
         ) : (
-          // PLACEHOLDER: shown until a real image path is set in content.ts
           <span className="absolute bottom-4 left-4 rounded-full bg-background px-3 py-1 text-xs font-medium tracking-wide text-text">
-            {image.alt}
+            {image.alt}shshhshs
           </span>
         )}
       </div>
