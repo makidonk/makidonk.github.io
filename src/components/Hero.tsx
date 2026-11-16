@@ -45,7 +45,7 @@ export function Hero() {
                 />
                 <WavePoint
                   order={2}
-                  className="absolute left-0 top-[calc(100%+1.2em)]"
+                  className="absolute left-0 top-[calc(100%+2em)]  md:top-[calc(100%+1.2em)]"
                 />
               </span>
             </span>
