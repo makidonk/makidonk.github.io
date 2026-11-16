@@ -21,13 +21,13 @@ export function Hero() {
             <span className="block pl-[5cqi] text-[length:max(2rem,3cqi)] font-bold leading-none tracking-tight max-md:mb-4 max-md:whitespace-nowrap max-md:text-[length:max(2rem,3cqi)]">
               hi, my name is
             </span>
-            <span className="block whitespace-nowrap text-[length:23cqi] font-extrabold uppercase leading-[0.8] tracking-[-0.045em]">
+            <span className="block whitespace-nowrap text-[length:23cqi] font-extrabold  leading-[0.8] tracking-[-0.045em]">
               {site.name}
             </span>
             <span className="-mt-[0.8cqi] block pl-[3cqi] font-sans text-[length:max(2rem,3cqi)] font-bold leading-none tracking-tight max-md:mt-4 max-md:whitespace-nowrap max-md:text-[length:max(2rem,3cqi)]">
               and I'm a
             </span>
-            <span className="mt-[max(0.2rem,0.6cqi)] max-md:mt-6 block whitespace-nowrap pl-[10cqi] text-[length:10cqi] font-extrabold uppercase leading-[0.85] tracking-[-0.03em] md:text-[length:7.5cqi]">
+            <span className="mt-[max(0.2rem,0.6cqi)] max-md:mt-6 block whitespace-nowrap pl-[10cqi] text-[length:10cqi] font-extrabold  leading-[0.85] tracking-[-0.03em] md:text-[length:7.5cqi]">
               <span className="relative inline-block">
                 web developer
                 {/*

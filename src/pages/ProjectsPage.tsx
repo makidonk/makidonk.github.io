@@ -11,7 +11,7 @@ export function ProjectsPage() {
       <section className="shell pb-16 pt-20 md:pb-24 md:pt-24">
         {/* Container units: the heading spans the column at every width, like the hero */}
         <div className="@container">
-          <h1 className="font-display text-[length:17cqi] font-extrabold uppercase leading-[0.82] tracking-[-0.05em] whitespace-nowrap">
+          <h1 className="font-display text-[length:17cqi] font-extrabold  leading-[0.82] tracking-[-0.05em] whitespace-nowrap">
             {projectsPage.heading}
           </h1>
         </div>

@@ -42,7 +42,7 @@ export function ProjectPage() {
             <span className="font-display font-bold">({number})</span>
             <span>{project.category}</span>
           </p>
-          <h1 className="mt-3 font-display text-[clamp(3.6rem,13vw,13rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.05em] break-words hyphens-auto">
+          <h1 className="mt-3 font-display text-[clamp(3.6rem,13vw,13rem)] font-extrabold  leading-[0.82] tracking-[-0.05em] break-words hyphens-auto">
             {project.title}
           </h1>
           {project.intro && (
@@ -162,7 +162,7 @@ function NextProject({ project }: { project: Project }) {
     >
       <div className="md:col-span-8">
         <p className="text-lg font-medium md:text-xl">next project</p>
-        <p className="mt-3 flex items-start gap-[0.15em] font-display text-[clamp(3rem,10vw,10rem)] font-extrabold uppercase leading-[0.84] tracking-[-0.05em] break-words">
+        <p className="mt-3 flex items-start gap-[0.15em] font-display text-[clamp(3rem,10vw,10rem)] font-extrabold  leading-[0.84] tracking-[-0.05em] break-words">
           {project.title}
           <ArrowIcon className="mt-[0.12em] size-[0.5em] shrink-0 transition-transform duration-500 ease-spring group-hover:rotate-45" />
         </p>
