@@ -52,7 +52,7 @@ export const aboutPage = {
   subheading: "(extended version)",
 
   // Portrait next to the intro. Put files in /public/images and use "/images/<file>".
-  photo: "/images/about-me.JPEG",
+  photo: "/images/me1.JPEG",
   photoAlt: "Mathilda standing on a giant tomato sculpture in a park",
 
   intro: [
@@ -125,10 +125,9 @@ export const aboutPage = {
   hobbies: {
     heading: "outside of coding",
     paragraphs: [
-      "When I’m not at my computer, you’ll probably find me climbing or out on a hike somewhere. I love spending time outdoors, preferably somewhere with a nice view.",
-      "I also play a lot of video games, and I’ve always enjoyed creative hobbies like drawing, filming and editing videos.",
+      "When I’m not at my computer, you’ll probably find me at the climbing gym, scraping the skin off my hands trying to send my latest project. I also love a good iced matcha latte, spending time outdoors, and cats",
+      "I play a lot of video games too, and I’ve always enjoyed creative hobbies like drawing, crocheting, and interior design",
     ],
-    // PLACEHOLDER: set `src` to e.g. "/images/about/climbing.jpg" to replace a block.
     // The first image is the large one.
     gallery: [
       { src: null, alt: "Photo placeholder: climbing" },

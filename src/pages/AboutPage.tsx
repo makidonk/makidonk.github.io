@@ -1,10 +1,8 @@
-import type { CSSProperties } from "react";
-import { ArrowIcon } from "../components/ArrowIcon";
+import type { TransitionEvent } from "react";
 import { SiteLayout } from "../components/SiteLayout";
 import { useDocumentTitle } from "../components/useDocumentTitle";
 import {
   aboutPage,
-  site,
   type CvEntry,
   type ProjectImage,
   type Skill,
@@ -15,6 +13,16 @@ const H2 =
   "font-display text-[clamp(1.5rem,4vw,4rem)] font-extrabold leading-[0.9] tracking-[-0.04em]";
 
 const BODY = "text-xl leading-snug md:text-2xl";
+
+const SKILLS_WAVE_MODE: { trigger: "hover" | "always" } = { trigger: "always" };
+function updateSkillsWave(event: TransitionEvent<HTMLDivElement>) {
+  if (event.propertyName === "--skills-wave-depth") {
+    event.currentTarget.toggleAttribute(
+      "data-wave-formed",
+      event.type === "transitionend",
+    );
+  }
+}
 
 export function AboutPage() {
   useDocumentTitle("About");
@@ -37,7 +45,7 @@ export function AboutPage() {
         aria-label="Introduction"
         className="shell grid items-center gap-10 md:grid-cols-12 md:gap-x-2"
       >
-        <div className="relative aspect-3/4 w-full max-w-[480px] overflow-hidden bg-accent md:col-span-5 order-2">
+        <div className="relative aspect-4/4 w-full overflow-hidden bg-accent md:col-span-5 order-2">
           {aboutPage.photo ? (
             <img
               src={aboutPage.photo}
@@ -58,8 +66,17 @@ export function AboutPage() {
       </section>
 
       {/* ---- Skills: mina skills uppraddade på blå bakgrund vågig animerad så som likarna i nav---- */}
-      <section className="my-2 md:my-25 bg-accent">
-        <div className="shell py-10 flex flex-wrap items-start justify-center gap-3 sm:gap-4 md:gap-1">
+      <section
+        className="skills-section relative my-15 md:my-25"
+        data-wave-mode={SKILLS_WAVE_MODE.trigger}
+      >
+        <div
+          className="skills-wave bg-accent-deep"
+          aria-hidden="true"
+          onTransitionRun={updateSkillsWave}
+          onTransitionEnd={updateSkillsWave}
+        />
+        <div className="relative shell py-15 flex flex-wrap items-start justify-center gap-3 sm:gap-4 md:gap-1">
           {skills.items.map((skill, i) => (
             <SkillText key={skill.name} skill={skill} index={i} />
           ))}
@@ -67,7 +84,7 @@ export function AboutPage() {
       </section>
 
       {/* ---- Story: big heading, narrower offset text column ---- */}
-      <section className="shell mt-28 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-x-2">
+      <section className="shell mt-20 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-x-2">
         <h2 className={`${H2} md:col-span-7`}>{story.heading}</h2>
         <div className="space-y-6 md:col-span-5 md:col-start-8 ">
           {story.paragraphs.map((p) => (
@@ -78,28 +95,21 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* ---- Skills: wrapping blobs ---- */}
-      {/* <section className="shell mt-28 md:mt-44">
-        <h2 className={H2}>{skills.heading}</h2>
-        <ul className="mx-auto mt-12 flex flex-wrap items-start justify-center gap-3 sm:gap-4 md:mt-16 md:gap-1">
-          {skills.items.map((skill, i) => (
-            <SkillText key={skill.name} skill={skill} index={i} />
-          ))}
-        </ul>
-      </section> */}
       {/* ---- CV: ---- */}
-      <section className="shell mt-28 text-center md:mt-32">
+      <section className="shell mt-20 text-center md:mt-32">
         <h2 className={H2}>the road so far</h2>
-        <p className="mt-14 text-base font-medium text-text/70 md:mt-10">
+        <p className="mt-8 text-lg md:text-md font-medium text-text/60 md:mt-10">
           work experience
         </p>
         <CvList entries={cv.experience} />
 
-        <p className="text-base font-medium text-text/70">education</p>
+        <p className="text-lg md:text-md  font-medium text-text/60">
+          education
+        </p>
         <CvList entries={cv.education} />
       </section>
       {/* ---- Hobbies + gallery ---- */}
-      <section className="shell mt-28 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-x-2">
+      <section className="shell mt-20 grid gap-10 md:mt-32 md:grid-cols-12 md:gap-x-2">
         <div className="md:col-span-5">
           <h2 className={H2}>{hobbies.heading}</h2>
           <div className="mt-8 space-y-6">
@@ -117,59 +127,21 @@ export function AboutPage() {
 }
 
 /* ------------------------------------------------------------------
-   Skill blobs
+   Skill text
    ------------------------------------------------------------------ */
-
-/** [resting shape, hover shape] — cycled through by index. Tweak to change the wobble. */
-const BLOB_SHAPES = [
-  ["58% 42% 47% 53% / 52% 46% 54% 48%", "44% 56% 60% 40% / 41% 58% 42% 59%"],
-  ["45% 55% 52% 48% / 56% 44% 56% 44%", "60% 40% 38% 62% / 48% 62% 38% 52%"],
-  ["52% 48% 41% 59% / 47% 55% 45% 53%", "38% 62% 56% 44% / 60% 40% 60% 40%"],
-  ["49% 51% 57% 43% / 43% 49% 51% 57%", "62% 38% 46% 54% / 54% 36% 64% 46%"],
-];
-
-/** Small vertical nudges (desktop only) so rows don't line up perfectly. */
-// const BLOB_OFFSETS = ["md:mt-0", "md:mt-8", "md:mt-3", "md:mt-12", "md:mt-5"];
-
-// const BLOB_COLOR: Record<Skill["color"], string> = {
-//   blue: "bg-accent",
-//   pink: "bg-pink",
-// };
-
-// const BLOB_SIZE = {
-//   primary:
-//     "size-32 sm:size-36 md:size-32 font-display text-lg font-extrabold tracking-tight sm:text-xl md:text-2xl",
-//   secondary: "size-24 sm:size-16 md:size-20 text-sm font-medium md:text-base",
-// };
-
-// const BLOB_SIZE = {
-//   primary:
-//     "size-32 sm:size-36 md:size-44 font-display text-lg font-extrabold tracking-tight sm:text-xl md:text-2xl",
-//   secondary: "size-24 sm:size-28 md:size-32 text-sm font-medium md:text-base",
-// };
-
-// function SkillBlob({ skill, index }: { skill: Skill; index: number }) {
-//   const [shape, shapeHover] = BLOB_SHAPES[index % BLOB_SHAPES.length];
-//   return (
-//     <li
-//       className={`skill-blob flex shrink-0 items-center justify-center p-3 text-center leading-tight text-text ${
-//         BLOB_SIZE[skill.primary ? "primary" : "secondary"]
-//       } ${BLOB_COLOR[skill.color]} ${BLOB_OFFSETS[index % BLOB_OFFSETS.length]}`}
-//       style={{ "--shape": shape, "--shape-hover": shapeHover } as CSSProperties}
-//     >
-//       {skill.name}
-//     </li>
-//   );
-// }
 
 function SkillText({ skill }: { skill: Skill; index: number }) {
   return (
     <p
-      className={`p-3 text-center leading-tight text-text font-display font-bold tracking-tight ${
-        skill.primary ? "text-2xl" : "text-xl"
+      className={`group/skill p-3 text-center leading-tight text-background font-display font-bold tracking-tight mb-0 cursor-default ${
+        skill.primary
+          ? "text-[clamp(1.375rem,4vw,2.5rem)]"
+          : "text-[clamp(1.125rem,3.2vw,2rem)]"
       }`}
     >
-      {skill.name}
+      <span className="block motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover/skill:scale-[1.07]">
+        {skill.name}
+      </span>
     </p>
   );
 }
@@ -180,16 +152,16 @@ function SkillText({ skill }: { skill: Skill; index: number }) {
 
 function CvList({ entries }: { entries: CvEntry[] }) {
   return (
-    <ul className="mt-3 mb-6 space-y-14 md:space-y-3">
+    <ul className="mt-3 mb-6 space-y-3 md:space-y-3">
       {entries.map((e) => (
         <li key={e.title + e.place} className="">
           <div className="flex justify-center gap-2 mt-3 items-center">
-            <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl">
+            <h3 className="font-display text-lg font-bold tracking-tight md:text-2xl">
               {e.title}
             </h3>
             <p className=" text-base text-text/80">{e.place}</p>
           </div>
-          {e.subtitle && <p className=" text-lg">{e.subtitle}</p>}
+          {e.subtitle && <p className=" text-md">{e.subtitle}</p>}
           {e.link && e.linktext && (
             <a
               href={e.link}
@@ -203,20 +175,6 @@ function CvList({ entries }: { entries: CvEntry[] }) {
     </ul>
   );
 }
-
-// <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl">
-//       Bachelor’s Degree in Informatics
-//     </h3>
-//     <p className=" text-base text-text/80">Jönköping University</p>
-//   </div>
-
-//   <p className=" text-lg">Graphic Design and Web Development</p>
-//   <a
-//     href="https://ju.diva-portal.org/smash/record.jsf?pid=diva2%3A1970352&dswid=9956"
-//     className="hover:text-text text-text/60 transition-colors"
-//   >
-//     link to my thesis
-//   </a>
 
 /** One large image + two smaller ones. Placeholder blocks while `src` is null. */
 function Gallery({ images }: { images: ProjectImage[] }) {

@@ -113,6 +113,73 @@
   border-radius: var(--shape);
 }
 
+@property --skills-wave-offset {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --skills-wave-depth {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.skills-wave {
+  --skills-wave-width: 120px;
+  --skills-wave-amplitude: 16px;
+  --skills-wave-cycle: 5.2s;
+  --skills-wave-transition: 550ms;
+  --skills-wave-overlap: min(1px, var(--skills-wave-depth) / 14);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Scale the link's Q/T curve and overlap both strips with the solid center. */
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28' preserveAspectRatio='none'%3E%3Cpath d='M0 14 Q5 -10 10 14 T20 14 V28 H0Z'/%3E%3C/svg%3E")
+      var(--skills-wave-offset) top / var(--skills-wave-width)
+      var(--skills-wave-depth) repeat-x,
+    linear-gradient(#000 0 0) center / 100%
+      calc(100% - 2 * (var(--skills-wave-depth) - var(--skills-wave-overlap)))
+      no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28' preserveAspectRatio='none'%3E%3Cpath d='M0 14 Q5 -10 10 14 T20 14 V28 H0Z' transform='translate(0 28) scale(1 -1)'/%3E%3C/svg%3E")
+      calc(var(--skills-wave-width) / 2 - var(--skills-wave-offset)) bottom /
+      var(--skills-wave-width) var(--skills-wave-depth) repeat-x;
+}
+
+.skills-section[data-wave-mode="always"] > .skills-wave {
+  --skills-wave-depth: calc(var(--skills-wave-amplitude) * 7 / 3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skills-section[data-wave-mode="always"] > .skills-wave {
+    animation: skills-wave-travel var(--skills-wave-cycle) linear infinite;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .skills-section[data-wave-mode="hover"] > .skills-wave {
+    transition: --skills-wave-depth var(--skills-wave-transition) ease-in-out;
+    animation: skills-wave-travel var(--skills-wave-cycle) linear infinite
+      paused;
+  }
+
+  .skills-section[data-wave-mode="hover"]:hover > .skills-wave {
+    --skills-wave-depth: calc(var(--skills-wave-amplitude) * 7 / 3);
+  }
+
+  .skills-section[data-wave-mode="hover"]:hover
+    > .skills-wave[data-wave-formed] {
+    animation-play-state: running;
+  }
+}
+
+@keyframes skills-wave-travel {
+  to {
+    --skills-wave-offset: var(--skills-wave-width);
+  }
+}
+
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .skill-blob {
     transition: border-radius 700ms var(--ease-out-soft);
