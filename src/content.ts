@@ -21,10 +21,129 @@ export const site = {
 export const about = {
   intro: "I’m a design-loving developer who .",
   //  link to a longer about page, CV or similar
-  moreHref: "#",
+  moreHref: "/about",
   // set to an image path (e.g. '/images/me.jpg' in /public) to replace the placeholder
   photo: "/images/about-me-transparent.png",
   photoAlt: "no photo",
+};
+
+/* ------------------------------------------------------------------
+   /about page
+   ------------------------------------------------------------------ */
+
+/**
+ * Skill blob colour (see `.skill-blob` in index.css and BLOB_COLOR in AboutPage.tsx).
+ * `primary: true` makes a blob bigger and bolder.
+ */
+export type Skill = { name: string; primary?: boolean; color: "blue" | "pink" };
+
+export type CvEntry = {
+  title: string;
+  subtitle?: string;
+  link?: string;
+  linktext?: string;
+  place: string;
+  dates: string;
+  text?: string;
+};
+
+export const aboutPage = {
+  heading: "about me",
+  subheading: "(extended version)",
+
+  // Portrait next to the intro. Put files in /public/images and use "/images/<file>".
+  photo: "/images/about-me.JPEG",
+  photoAlt: "Mathilda standing on a giant tomato sculpture in a park",
+
+  intro: [
+    "Hi, I’m Mathilda! I’m a frontend developer with a soft spot for good design. I love figuring out how things work, solving problems and getting the little details just right.",
+    "I enjoy the technical side of development the most, but my creative background definitely finds its way into my work.",
+  ],
+
+  story: {
+    heading: "how I got into development",
+    paragraphs: [
+      "I’ve always been into creative things, from drawing and design to filming and editing videos. That’s what led me to study Graphic Design and Web Development at Jönköping University.",
+      "But once I started programming, I quickly realised that was the part I enjoyed the most. I’ve always loved maths, and there’s something really satisfying about working through a problem until you finally get it right.",
+      "I still have a strong appreciation for good design, and I think my creative background helps me see things from a different perspective. But if I had to choose between designing something and building it, I’d probably pick the code.",
+    ],
+  },
+
+  skills: {
+    heading: "things I work with",
+    items: [
+      { name: "React", primary: true, color: "blue" },
+      { name: "Figma", color: "pink" },
+      { name: "TypeScript", primary: true, color: "pink" },
+      { name: "Git", color: "blue" },
+      { name: "Next.js", primary: true, color: "blue" },
+      { name: "REST APIs", color: "pink" },
+      { name: "JavaScript", primary: true, color: "pink" },
+      { name: "Strapi", color: "blue" },
+      { name: "HTML", primary: true, color: "blue" },
+      { name: "UI Design", color: "pink" },
+      { name: "CSS", primary: true, color: "pink" },
+      { name: "jQuery", color: "blue" },
+      { name: "Tailwind CSS", primary: true, color: "blue" },
+    ] as Skill[],
+  },
+
+  cv: {
+    heading: "the road so far",
+    experience: [
+      {
+        title: "Frontend Developer & Designer",
+        place: "Lagagruppen AB",
+        dates: "Dec 2025 – Jun 2026",
+        text: "Worked on redesigning and developing the company’s website, focusing on frontend development, usability, performance, and improving the overall user experience.",
+      },
+      {
+        title: "Frontend Developer",
+        place: "Grace Studio",
+        dates: "Apr 2024 – Aug 2024",
+        text: "Started as an intern and was later offered a summer position. Worked on client projects using React, Next.js, and Tailwind, building interfaces and scroll-based animations.",
+      },
+      {
+        title: "Teaching Assistant in programming courses",
+        place: "Jönköping University",
+        dates: "Oct 2023 – Apr 2024",
+        text: "Assisted students in two programming courses with coding, debugging, and understanding programming concepts.",
+      },
+    ] as CvEntry[],
+    education: [
+      {
+        title: "Bachelor’s Degree in Informatics",
+        subtitle: "Graphic Design and Web Development",
+        place: "Jönköping University",
+        link: "https://ju.diva-portal.org/smash/record.jsf?pid=diva2%3A1970352&dswid=9956",
+        linktext: "read my thesis",
+        dates: "2022–2025",
+      },
+    ] as CvEntry[],
+  },
+
+  hobbies: {
+    heading: "outside of coding",
+    paragraphs: [
+      "When I’m not at my computer, you’ll probably find me climbing or out on a hike somewhere. I love spending time outdoors, preferably somewhere with a nice view.",
+      "I also play a lot of video games, and I’ve always enjoyed creative hobbies like drawing, filming and editing videos.",
+    ],
+    // PLACEHOLDER: set `src` to e.g. "/images/about/climbing.jpg" to replace a block.
+    // The first image is the large one.
+    gallery: [
+      { src: null, alt: "Photo placeholder: climbing" },
+      { src: null, alt: "Photo placeholder: hiking" },
+      { src: null, alt: "Photo placeholder: gaming / creative hobbies" },
+    ] as ProjectImage[],
+  },
+
+  outro: {
+    heading: "let’s talk!",
+    text: "Want to know more? Feel free to take a look at my résumé or get in touch!",
+    // PLACEHOLDER: no résumé file yet. Add a PDF to /public (e.g. /resume.pdf)
+    // and set this to "/resume.pdf". While null, the link is shown as "coming soon".
+    resumeHref: null as string | null,
+  },
 };
 
 /** Solid card colour, shown until a real image is set. Uses the site palette. */

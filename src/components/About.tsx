@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { about } from "../content";
 import { WavePoint } from "./WavePoint";
 
@@ -45,12 +46,12 @@ export function About() {
           </p>
 
           <div className="mt-10">
-            <a
-              href={about.moreHref}
+            <Link
+              to={about.moreHref}
               className="squiggle-link text-xl font-medium"
             >
               let me talk even more about myself
-            </a>
+            </Link>
           </div>
         </div>
       </div>

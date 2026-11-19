@@ -21,6 +21,7 @@
   --color-sky: #86aede;
   --color-sky-deep: #5d8bc9;
   --color-ink: #2b1209;
+  --color-pink: #f6a5c0;
 
   --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
@@ -100,6 +101,25 @@
 @keyframes squiggle-run {
   to {
     background-position: 20px 100%;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Skill blobs (/about) — soft organic shapes that wobble on hover.
+   Each blob sets its own --shape and --shape-hover (see AboutPage.tsx);
+   only border-radius changes, so the text never moves.
+   ------------------------------------------------------------------ */
+.skill-blob {
+  border-radius: var(--shape);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .skill-blob {
+    transition: border-radius 700ms var(--ease-out-soft);
+  }
+
+  .skill-blob:hover {
+    border-radius: var(--shape-hover);
   }
 }
 

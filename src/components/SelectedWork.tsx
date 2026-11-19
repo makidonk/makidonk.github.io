@@ -8,10 +8,10 @@ export function SelectedWork() {
     <section id="work" className="relative scroll-mt-6 py-16 md:py-10">
       <div className="shell relative z-10">
         <h2 className="font-display text-[clamp(1.5rem,4vw,4rem)] font-extrabold leading-[0.9] tracking-[-0.04em]">
-          here are my proudest projects :
+          some of my proudest projects
         </h2>
 
-        <div className="mt-10 grid gap-x-2 gap-y-2 md:mt-14 md:grid-cols-2 lg:grid-cols-4 ">
+        <div className="mt-10 grid gap-x-2 gap-y-2 md:mt-10 md:grid-cols-2 lg:grid-cols-4 ">
           {featuredProjects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}

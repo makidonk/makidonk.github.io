@@ -10,12 +10,12 @@ export function SiteNav({ onHome = false }: { onHome?: boolean }) {
   const nav = onHome
     ? [
         { label: "projects", to: "#work" },
-        { label: "about", to: "#about" },
+        { label: "about", to: "/about" },
         { label: "contact", to: "#contact" },
       ]
     : [
         { label: "projects", to: "/projects" },
-        { label: "about", to: "/#about" },
+        { label: "about", to: "/about" },
         { label: "contact", to: "#contact" },
       ];
 
