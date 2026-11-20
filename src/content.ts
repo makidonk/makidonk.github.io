@@ -52,12 +52,12 @@ export const aboutPage = {
   subheading: "(extended version)",
 
   // Portrait next to the intro. Put files in /public/images and use "/images/<file>".
-  photo: "/images/me1.JPEG",
+  photo: "/images/me2.JPEG",
   photoAlt: "Mathilda standing on a giant tomato sculpture in a park",
 
   intro: [
     "Hi, I’m Mathilda! I’m a frontend developer with a soft spot for good design. I love figuring out how things work, solving problems and getting the little details just right.",
-    "I enjoy the technical side of development the most, but my creative background definitely finds its way into my work.",
+    "I work mainly with React, JavaScript and Tailwind CSS to build responsive, interactive websites. I especially enjoy the technical side of frontend development, from building reusable components to bringing designs to life through code. But my creative background definitely finds its way into my work.",
   ],
 
   story: {
@@ -130,9 +130,12 @@ export const aboutPage = {
     ],
     // The first image is the large one.
     gallery: [
-      { src: null, alt: "Photo placeholder: climbing" },
-      { src: null, alt: "Photo placeholder: hiking" },
-      { src: null, alt: "Photo placeholder: gaming / creative hobbies" },
+      { src: "/images/climb1.JPEG", alt: "Photo placeholder: climbing" },
+      { src: "/images/hike.JPEG", alt: "Photo placeholder: hiking" },
+      {
+        src: "/images/cat.JPEG",
+        alt: "Photo placeholder: gaming / creative hobbies",
+      },
     ] as ProjectImage[],
   },
 

@@ -139,7 +139,7 @@ function SkillText({ skill }: { skill: Skill; index: number }) {
           : "text-[clamp(1.125rem,3.2vw,2rem)]"
       }`}
     >
-      <span className="block motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:group-hover/skill:scale-[1.07]">
+      <span className="block motion-safe:transition-transform motion-safe:duration-[540ms] motion-safe:ease-[cubic-bezier(0.25,3.8,0.45,0.8)] motion-safe:group-hover/skill:scale-[0.90] motion-safe:group-hover/skill:duration-300 motion-safe:group-hover/skill:ease-out">
         {skill.name}
       </span>
     </p>
@@ -152,11 +152,11 @@ function SkillText({ skill }: { skill: Skill; index: number }) {
 
 function CvList({ entries }: { entries: CvEntry[] }) {
   return (
-    <ul className="mt-3 mb-6 space-y-3 md:space-y-3">
+    <ul className="mt-3 mb-6 space-y-4 md:space-y-5">
       {entries.map((e) => (
         <li key={e.title + e.place} className="">
-          <div className="flex justify-center gap-2 mt-3 items-center">
-            <h3 className="font-display text-lg font-bold tracking-tight md:text-2xl">
+          <div className="flex md:flex-row flex-col justify-center md:gap-2 mt-3 items-center">
+            <h3 className="font-display text-lg font-bold tracking-tight md:text-2xl leading-tight">
               {e.title}
             </h3>
             <p className=" text-base text-text/80">{e.place}</p>
